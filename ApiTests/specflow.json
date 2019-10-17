@@ -1,0 +1,30 @@
+﻿{
+  "bindingCulture": {
+    "language": "en-us"
+  },
+  "language": {
+    "feature": "en-us"
+  },
+  
+  "serviceConfiguration": {
+    "placeholderService": {
+      "baseUri": "https://jsonplaceholder.typicode.com/"
+    },
+    "weatherService": {
+      "baseUri": "http://api.openweathermap.org/data/2.5/weather",
+      "apiKey": "b434a2c07ac7fda13c7efc2d47f5e749"
+    }
+  },
+
+  "testDataCollection": {
+    "placeholderService": {
+      "ValidPostData": {
+        "albumId": "101",
+        "id": "5001",
+        "title": "MyTitle",
+        "url": "https://via.placeholder.com/669/e5109",
+        "thumbnailUrl": "https://via.placeholder.com/69/e5109"
+      }
+    }
+  }
+}
