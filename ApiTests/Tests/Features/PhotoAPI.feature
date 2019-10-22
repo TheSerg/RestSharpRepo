@@ -24,10 +24,29 @@ Scenario: Deleting photo data
 	When I delete photo data using Id 3 from the photo service
 	Then Http response code is OK
 
-Scenario: Request post data using unexisting id
+Scenario: Request post data using existing id
 	When I request for post data using id 3
 	Then Http response code is OK
 
-Scenario: Request comment data using unexisting id
+Scenario: Request comment data using existing id
 	When I request for comment using id 3
 	Then Http response code is OK
+
+Scenario: Request user using existing id
+	When I request for user using id 2
+	Then Http response code is OK
+
+Scenario: Request album using existing id
+	When I request for album using id 5
+	Then Http response code is OK
+
+Scenario: Request todos using existing id
+	When I request for todos using id 6
+	Then Http response code is OK
+
+Scenario: Request album with id 5 and check title name
+	When I request for album using id 5
+	Then Http response code is OK
+	Then Album should have a title ""MyTitle""
+	
+

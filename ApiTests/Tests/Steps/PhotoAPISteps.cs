@@ -7,7 +7,11 @@
     using ApiTests.Utilities.Configurations;
     using ApiTests.Utilities.Enums;
     using ApiTests.Utilities.ScenarioSupport;
+    using FluentAssertions;
     using Newtonsoft.Json;
+    using Newtonsoft.Json.Linq;
+    using NUnit.Framework;
+    using RestSharp;
     using TechTalk.SpecFlow;
 
     [Binding]
@@ -61,5 +65,45 @@
             var httpResponseCode = this.photoActions.GetCommentAction(id);
             Context<HttpStatusCode>.Add(ContextKeys.ResponsCode, httpResponseCode);
         }
+
+        [When(@"I request for user using id (.*)")]
+        public void WhenIRequestForUserUsingId(string id)
+        {
+            var httpResponseCode = this.photoActions.GetCommentAction(id);
+            Context<HttpStatusCode>.Add(ContextKeys.ResponsCode, httpResponseCode);
+        }
+
+        [When(@"I request for album using id (.*)")]
+        public void WhenIRequestForAlbumUsingId(string id)
+        {
+            var httpResponseCode = this.photoActions.GetAlbumByIdAction(id);
+            Context<HttpStatusCode>.Add(ContextKeys.ResponsCode, httpResponseCode);
+        }
+
+        [When(@"I request for todos using id (.*)")]
+        public void WhenIRequestForTodosUsingId(string id)
+        {
+            var httpResponseCode = this.photoActions.GetAlbumByIdAction(id);
+            Context<HttpStatusCode>.Add(ContextKeys.ResponsCode, httpResponseCode);
+        }
+
+        [Given(@"I request for album using id (.*)")]
+        public void GivenIRequestForAlbumUsingId(string id)
+        {   
+            var httpResponseCode = this.photoActions.GetAlbumByIdAction(id);
+            Context<HttpStatusCode>.Add(ContextKeys.ResponsCode, httpResponseCode);
+        }
+
+        [Then(@"Album should have a title ""(.*)""")]
+        public void ThenAlbumShouldHaveATitle(string expectedTitle)
+        {
+            var photoModel = this.photoModel.BuildValidPostPhotoModel(this.placeholderService.ValidPostData);
+            var actualTitle = JsonConvert.SerializeObject(photoModel.Title);
+            Assert.AreEqual(expectedTitle, actualTitle);
+        }
+
+        [Given(@"Http response code is OK")]
+        public void ThenServiceResponseCodeIsCorrect(HttpStatusCode httpsResponseCode)
+            => Context<HttpStatusCode>.GetValue(ContextKeys.ResponsCode).Should().Be(httpsResponseCode);
     }
 }

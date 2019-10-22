@@ -43,6 +43,33 @@
             return result;
         }
 
+        public HttpStatusCode GetUserByIdAction(string id)
+        {
+            var resource = this.controller.GetUserByIDPath(id);
+            var rowResponse = this.client.ExecuteRequest(Method.GET, resource);
+            var result = rowResponse.StatusCode;
+
+            return result;
+        }
+
+        public HttpStatusCode GetAlbumByIdAction(string id)
+        {
+            var resource = this.controller.GetAlbumByIDPath(id);
+            var rowResponse = this.client.ExecuteRequest(Method.GET, resource);
+            var result = rowResponse.StatusCode;
+
+            return result;
+        }
+
+        public HttpStatusCode GetTodosByIdAction(string id)
+        {
+            var resource = this.controller.GetTodosByIDPath(id);
+            var rowResponse = this.client.ExecuteRequest(Method.GET, resource);
+            var result = rowResponse.StatusCode;
+
+            return result;
+        }
+
         public HttpStatusCode GetPostedStatusCode(string requestBody)
         {
             var resource = this.controller.PostPhotoResource();

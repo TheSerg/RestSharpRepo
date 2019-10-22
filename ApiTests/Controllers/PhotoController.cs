@@ -23,5 +23,11 @@
         public string GetPostResource(string id) => $"{this.placeholderService.BaseUri}posts/{id}";
 
         public string GetCommentByIDPath(string id) => $"{this.placeholderService.BaseUri}comments/{id}";
+
+        public string GetUserByIDPath(string id) => $"{this.placeholderService.BaseUri}users/{id}";
+
+        public string GetAlbumByIDPath(string id) => $"{this.placeholderService.BaseUri}albums/{id}";
+
+        public string GetTodosByIDPath(string id) => $"{this.placeholderService.BaseUri}todos/{id}";
     }
 }
