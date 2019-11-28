@@ -241,6 +241,28 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Request album with id 5 and check all data")]
+        public virtual void RequestAlbumWithId5AndCheckAllData()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Request album with id 5 and check all data", null, ((string[])(null)));
+#line 52
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 53
+ testRunner.When("I request for album using id 5", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 54
+ testRunner.Then("Title is \"\"MyTitle\"\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 55
+ testRunner.Then("user id should be \"101\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 56
+ testRunner.Then("url should be \"\"https://via.placeholder.com/669/e5109\"\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 57
+ testRunner.Then("thumbneil url should be \"\"https://via.placeholder.com/669/e5109\"\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

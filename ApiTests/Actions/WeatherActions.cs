@@ -34,6 +34,15 @@
             return result;
         }
 
+        public HttpStatusCode GetResponseExperimentName(string name)
+        {
+            var resource = this.controller.WeatherResourceByCityName(name);
+            var rowResponse = this.client.ExecuteRequest(Method.GET, resource);
+            var result = rowResponse.StatusCode;
+
+            return result;
+        }
+
         public HttpStatusCode GetBadResponseStatusCodeName(string name)
         {
             var resource = this.controller.WeatherResourceByCityId(name);
@@ -42,5 +51,5 @@
 
             return result;
         }
-    }
+}
 }

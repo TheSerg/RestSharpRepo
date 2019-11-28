@@ -48,5 +48,18 @@ Scenario: Request album with id 5 and check title name
 	When I request for album using id 5
 	Then Http response code is OK
 	Then Album should have a title ""MyTitle""
+
+Scenario: Request album with id 5 and check all data
+	When I request for album using id 5
+	Then Title is ""MyTitle""
+	Then user id should be "101"
+	Then url should be ""https://via.placeholder.com/669/e5109""
+	Then thumbneil url should be ""https://via.placeholder.com/669/e5109""
+
+
+
+
+
+	
 	
 

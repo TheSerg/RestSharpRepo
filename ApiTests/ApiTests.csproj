@@ -13,6 +13,9 @@
     <CodeAnalysisRuleSet>..\standards\standards.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <SpecFlowObsoleteCodeBehindFiles Remove="Tests\Features\PhotoAPI - Copy.feature.cs" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="AutoFixture" Version="4.11.0" />
     <PackageReference Include="BoDi" Version="1.4.1" />
     <PackageReference Include="Bogus" Version="28.0.2" />

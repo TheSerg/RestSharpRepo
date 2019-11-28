@@ -102,6 +102,38 @@
             Assert.AreEqual(expectedTitle, actualTitle);
         }
 
+        [Then(@"Title is ""(.*)""")]
+        public void ThenTitleIs(string expectedTitle)
+        {
+            var photoModel = this.photoModel.BuildValidPostPhotoModel(this.placeholderService.ValidPostData);
+            var actualTitle = JsonConvert.SerializeObject(photoModel.Title);
+            Assert.AreEqual(expectedTitle, actualTitle);
+        }
+
+        [Then(@"user id should be (.*)")]
+        public void ThenUserIdShouldBe(string expectedUserId)
+        {
+            var photoModel = this.photoModel.BuildValidPostPhotoModel(this.placeholderService.ValidPostData);
+            var actualUserId = JsonConvert.SerializeObject(photoModel.AlbumId);
+            Assert.AreEqual(expectedUserId, actualUserId);
+        }
+
+        [Then(@"url should be ""(.*)""")]
+        public void ThenUrlShouldBe(string url)
+        {
+            var photoModel = this.photoModel.BuildValidPostPhotoModel(this.placeholderService.ValidPostData);
+            var actualUrl = JsonConvert.SerializeObject(photoModel.Url);
+            Assert.AreEqual(url, actualUrl);
+        }
+
+        [Then(@"thumbneil url should be ""(.*)""")]
+        public void ThenThumbneilUrlShouldBe(string expectedThumbnailUrl)
+        {
+            var photoModel = this.photoModel.BuildValidPostPhotoModel(this.placeholderService.ValidPostData);
+            var actualThambnailUrl = JsonConvert.SerializeObject(photoModel.Url);
+            Assert.AreEqual(actualThambnailUrl, expectedThumbnailUrl);
+        }
+
         [Given(@"Http response code is OK")]
         public void ThenServiceResponseCodeIsCorrect(HttpStatusCode httpsResponseCode)
             => Context<HttpStatusCode>.GetValue(ContextKeys.ResponsCode).Should().Be(httpsResponseCode);
